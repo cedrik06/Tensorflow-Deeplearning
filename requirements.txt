@@ -3,3 +3,4 @@ folium
 pandas
 numpy
 tensorflow
+scikit-learn
