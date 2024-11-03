@@ -34,7 +34,7 @@ anomaly_model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.0001), 
     
 
 # Streamlit Arayüzü
-st.title("IMS Anomaly Detection Model")
+st.title("IMS ANOMALI TESPIT MODELI")
 st.write("Excel dosyanızı yükleyin ve modeli eğitin veya tahmin yapın.")
 
 # Kullanıcıdan dosya yüklemesini isteyin
