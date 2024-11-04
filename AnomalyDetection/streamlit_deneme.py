@@ -116,7 +116,7 @@ if uploaded_file_2:
             btn = st.download_button(
                 label="Haritayı İndir",
                 data=file,
-                file_name=f"{heatmap_name}",
+                file_name=f"{heatmap_name}.html",
                 mime="text/html"
             )
         
