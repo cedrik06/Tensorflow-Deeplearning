@@ -8,6 +8,15 @@ import tensorflow as tf
 from sklearn.preprocessing import StandardScaler
 import base64
 
+
+
+
+# Model ne kadar eğitildiğine dair bilgi
+# Excel tarih aralık heatmap tarih aralık
+#
+
+
+
 # Model oluşturma fonksiyonu
 class AnomalyDetecter(Model):
     def __init__(self) -> None:
@@ -88,20 +97,26 @@ if uploaded_file_2:
         anomaly_indices_z = new_data.index[anomalies == True].tolist()
 
         anomaly_points_z =(new_data.iloc[anomaly_indices_z])
+     
         # Haritayı oluştur
+        
         m = folium.Map(location=[40.991826, 29.036553], zoom_start=15)
         anomaly_coordinates = [[row['latitude'], row['longitude']] for index, row in anomaly_points_z.iterrows()]
         HeatMap(anomaly_coordinates).add_to(m)
 
+
         # Haritayı kaydet ve göster
         m.save("heatmap_Z.html")
+        heatmap_name = st.text_input("Heatmap'e İsim Veriniz")
         st.write("Anomali haritası oluşturuldu. Aşağıdaki bağlantıdan haritayı görebilirsiniz.")
+        
+
         
         with open("heatmap_Z.html", "rb") as file:
             btn = st.download_button(
                 label="Haritayı İndir",
                 data=file,
-                file_name="heatmap_Z.html",
+                file_name=f"{heatmap_name}",
                 mime="text/html"
             )
         
